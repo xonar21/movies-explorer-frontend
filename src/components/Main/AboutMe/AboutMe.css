@@ -1,0 +1,160 @@
+.aboutMe {
+    max-width: 1140px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 600px 1fr;
+    grid-template-rows: auto;
+    margin-top: 110px;
+}
+
+.aboutMe__groupInfo {
+    margin-top: 66px;
+    grid-row-start: 2;   
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutMe__title {
+    margin-bottom: 66px;
+}
+
+.aboutMe__name {
+    margin: 0;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -0.04em;
+    margin-bottom: 18px;
+}
+
+.aboutMe__subname {
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 26px;
+}
+
+.aboutMe__about {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: auto;
+}
+
+.aboutMe__link {
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+}
+
+.aboutMe__link:hover {
+    opacity: 0.5;
+    transition: opacity 0.2s linear;
+}
+
+.aboutMe__link:last-child {
+    margin-right: 0px;
+}
+
+.aboutMe__avatar {
+    display: block;
+    grid-row-start: 2;
+    width: 270px;
+    margin: 0;
+    border-radius: 10px;
+    justify-self: end;
+    margin-top: 66px;
+}
+
+@media screen and (max-width: 1280px) {
+    .aboutMe {
+        margin-top: 90px;
+        margin-right: 50px;
+        margin-left: 50px;
+        grid-template-columns: 50% 1fr;
+    }
+
+    .aboutMe__avatar {
+        width: 255px;
+    }
+
+    .aboutMe__title {
+        width: 100%;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .aboutMe__name {
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 40px;
+    }
+
+    .aboutMe__subname {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .aboutMe__about {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+}
+
+@media screen and (max-width: 769px) {
+    .aboutMe {
+        grid-template-columns: 1fr;
+        margin-right: 14px;
+        margin-left: 14px;
+    }
+
+    .aboutMe__avatar {
+        width: 292px;
+        margin: auto;
+        margin-top: 0;
+    }
+
+    .aboutMe__groupInfo {
+        margin-top: 40px;
+        grid-row-start: 3;   
+    }
+
+    .aboutMe__name {
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 36px;
+        margin-bottom: 20px;
+    }
+
+    .aboutMe__subname {
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 16px;
+        margin-bottom: 20px;
+    }
+
+    .aboutMe__subname {
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 16px;
+        margin-bottom: 20px;
+    }
+
+    .aboutMe__about {
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 16px;
+        margin-bottom: 40px;
+    }
+
+    .aboutMe__link {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

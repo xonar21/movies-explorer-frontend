@@ -1,0 +1,103 @@
+.register {
+    max-width: 396px;
+    margin: auto;
+    margin-top: 70px;
+}
+
+.register__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register__logo {
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.register__logo:hover {
+    opacity: 0.5;
+    transition: opacity 0.2s linear;
+}
+
+.register__title {
+    margin: 0;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 40px;
+}
+
+.register__span {
+    margin: 0;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #8B8B8B;
+    margin-bottom: 5px;
+}
+
+.register__input {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0);
+    border: 0;
+    padding: 0;
+}
+
+.register__label {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #424242;
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+}
+
+.register__label:last-of-type {
+    margin-bottom: 152px;
+}
+
+.register__button {
+    height: 45px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    background: #4285F4;
+    border: 0;
+    color: white;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.register__button:hover {
+    opacity: 0.5;
+    transition: opacity 0.2s linear;
+}
+
+.register__text {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #8B8B8B;
+}
+
+.register__login {
+    text-decoration: none;
+    color: #4285F4;
+    margin-left: 6px;
+}
+
+.register__login:hover {
+    opacity: 0.5;
+    transition: opacity 0.2s linear;
+}
+
+@media screen and (max-width: 450px) {
+    .register {
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+}

@@ -1,0 +1,120 @@
+.techs {
+    max-width: 1280px;
+    margin: auto;
+    background: #272727;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.techs__7tech {
+    margin: 0;
+    margin-top: 90px;
+    margin-bottom: 26px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+}
+
+.techs__subtitle {
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.04em;
+    width: 460px;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+.techs__groupTechs {
+    display: flex;
+    margin: auto;
+    width: 690px;
+}
+
+.techs__tech {
+    display: flex;
+    width: 90px;
+    height: 60px;
+    background: #303030;
+    border-radius: 10px;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.techs__tech:last-child {
+    margin-right: 0px;
+}
+
+@media screen and (max-width: 1280px) {
+    .techs {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .techs__7tech {
+        margin-top: 80px;
+        margin-bottom: 22px;
+    }
+
+    .techs__title {
+        width: 90%;
+    }
+
+    .techs__subtitle {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        margin-bottom: 83px;
+    }
+
+    .techs__tech {
+        width: 84px;
+        height: 57px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .techs__groupTechs {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .techs {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .techs__7tech {
+        margin-top: 60px;
+        margin-bottom: 24px;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    .techs__subtitle {
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 16px;
+        margin-bottom: 50px;
+        max-width: 292px;
+    }
+
+    .techs__groupTechs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        margin: auto;
+        width: 178px;
+        gap: 10px;
+    }
+
+    .techs__tech {
+        margin-right: 0;
+    }
+}
