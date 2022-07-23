@@ -2,11 +2,22 @@
     max-width: 1140px;
     margin: auto;
     display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    margin-bottom: 60px;
+    margin-top: 80px;
+}
+
+.moviesCardList_ul {
+    padding: 0;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     gap: 32px;
-    margin-bottom: 60px;
-    margin-top: 80px;
+}
+
+.moviesCardList_li {
+    list-style: none;
 }
 
 .moviesCardList__more {
@@ -23,6 +34,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.moviesCardList__moreNone {
+    display: none;
 }
 
 @media screen and (max-width: 1200px) {
