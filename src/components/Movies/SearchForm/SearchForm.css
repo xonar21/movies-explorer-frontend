@@ -12,6 +12,23 @@
     border-radius: 9px;
     align-items: center;
     margin-top: 70px;
+    flex-direction: column;
+    position: relative;
+}
+
+.searchForm__fieldset {
+    border: none;
+    width: 100%;
+    display: flex;
+    padding: 0;
+    height: 100%;
+}
+
+.search__inputErr {
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    color: #EE3465;
 }
 
 .searchForm__logo {
@@ -20,7 +37,7 @@
 }
 
 .searchForm__search {
-    width: 785px;
+    max-width: 785px;
     border: none;
     background-color: #2F2F2F;
     font-weight: 400;
@@ -41,6 +58,7 @@
     border-right: 1px solid #424242;
     height: 36px;
     padding-right: 24px;
+    align-self: center;
 }
 
 .searchForm__filter {
@@ -118,7 +136,6 @@
     .searchForm {
       margin-right: 10px;
       margin-left: 10px;
-      padding-bottom: 0;
   }
 
   .searchForm__button {
@@ -127,7 +144,14 @@
   }
 
   .searchForm__filterPC {
-      display: none;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: -135px;
+    right: 0;
+    justify-content: center;
+    z-index: 0;
   }
 
   .searchForm__filterMobile {
@@ -139,6 +163,7 @@
   .searchForm__search {
     max-width: 100%;
     min-width: 100px;
+    z-index: 1;
 }
 
 }

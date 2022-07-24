@@ -10,13 +10,11 @@ import { Link, useLocation } from 'react-router-dom';
 
 import './Navigation.css';
 
-function Navigation() {
+function Navigation(props) {
   const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState(false);
 
   let location = useLocation();
- 
- 
-
+  
   function burgerMenuChange() {
     setIsHamburgerMenuOpen(!isHamburgerMenuOpen);
   }
@@ -24,7 +22,7 @@ function Navigation() {
   return (
     <div className='navigation'>
       {
-      location.pathname === routes.main ?
+      location.pathname === routes.main && !props.isLogin ?
       <div className='navigation__groupButtons'>
         <Link to={routes.register}><button className='navigation__button navigation__buttonReg'>Регистрация</button></Link>
         <Link to={routes.login}><button className='navigation__button navigation__buttonLog'>Войти</button></Link>

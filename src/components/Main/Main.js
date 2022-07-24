@@ -12,10 +12,10 @@ import AboutMe from '../Main/AboutMe/AboutMe';
 
 import Portfolio from '../Main/Portfolio/Portfolio';
 
-function Main() {
+function Main(props) {
   return (
     <>
-        <Header />
+        <Header isLogin={props.loggedIn} />
         <Promo />
         <AboutProject />
         <Techs />

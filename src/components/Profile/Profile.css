@@ -15,12 +15,15 @@
     display: flex;
     padding-bottom: 16px;
     border-bottom: 1px solid #424242;
+    margin-bottom: 5px;
+    position: relative;
 }
 
 .profile__groupEmail {
     display: flex;
     margin-top: 16px;
-    margin-bottom: 220px;
+    margin-bottom: 5px;
+    position: relative;
 }
 
 .profile__textEmail {
@@ -37,6 +40,16 @@
     font-size: 11px;
     line-height: 13px;
     width: 141px;
+}
+
+.profile__inputErr {
+    color: #EE3465;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    position: absolute;
+    bottom: -15px;
+    right: 0;
 }
 
 .profile__title {
@@ -76,6 +89,7 @@
     border: 0;
     color: white;
     margin-bottom: 16px;
+    margin-top: 220px;
 }
 
 .profile__edit:hover {
