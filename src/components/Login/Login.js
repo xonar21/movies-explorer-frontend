@@ -23,7 +23,7 @@ function Login(props) {
 		props.handleLogin({ email: values.email, password: values.password })	
 		}	
 	}
-  console.log(errors)
+
   return (
     <div className='login'>
         <Link to={routes.main}><img src={logo} className='login__logo'/></Link>

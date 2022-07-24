@@ -17,12 +17,11 @@ function Register(props) {
         password: '',
         name: '',
      })
-     console.log(values)
      const onRegisterSumbit = (evt) => {
         evt.preventDefault()
         props.handleRegister({ email: values.email, name: values.name, password: values.password })
      }
-console.log(errors)
+
   return (
     <div className='register'>
         <Link to={routes.main}><img src={logo} className='register__logo'/></Link>
