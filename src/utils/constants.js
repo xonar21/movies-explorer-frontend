@@ -1,4 +1,4 @@
-export const baseUrl = 'http://api.beatfilms.nomoreparties.sbs';
+export const baseUrl = 'https://api.beatfilms.nomoreparties.sbs';
 
 export const beatfilmsUrl = 'https://api.nomoreparties.co/beatfilm-movies';
 
