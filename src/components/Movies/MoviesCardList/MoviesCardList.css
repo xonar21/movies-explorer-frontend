@@ -41,18 +41,24 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .moviesCardList {
-        max-width: 708px;
+    .moviesCardList_ul {
         grid-template-columns: 1fr 1fr;
         gap: 35px 24px;
+    }
+
+    .moviesCardList {
+        max-width: 708px;
     }
 }
 
 @media screen and (max-width: 769px) {
-    .moviesCardList {
-        max-width: 300px;
+    .moviesCardList_ul {
         grid-template-columns: 1fr;
         gap: 16px 0px;
+    }
+
+    .moviesCardList {
+        max-width: 300px;
         margin: auto;
         margin-top: 50px;
     }

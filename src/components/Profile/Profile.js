@@ -17,7 +17,6 @@ function Profile(props) {
      name: refName.current.value,
      email: refEmail.current.value,
   })
-
   const currentUser = React.useContext(CurrentUserContext)
 
   const [isUpdate, setIsUpdate] = React.useState(false)
@@ -52,13 +51,16 @@ function Profile(props) {
           <form className='profile__form' name='profile__form' onSubmit={handleSubmit} noValidate>
               <div className='profile__groupName'>
                   <p className='profile__textName'>Имя</p>
-                  <input type='text' className='profile__name' ref={refName}
-                        onChange={handleChange} values={refName.current.value} defaultValue={currentUser.name} disabled={isDisabledInput}></input>
+                  <input name='profileName' type='text' className='profile__name' ref={refName}
+                        onChange={handleChange} values={refName.current.value} defaultValue={currentUser.name} disabled={isDisabledInput} required></input>
+                  <span className='profile__inputErr'>{errors.profileName}</span>
               </div>
+              
               <div className='profile__groupEmail'>
                   <p className='profile__textEmail'>E-mail</p>
-                  <input type='text' className='profile__email' required ref={refEmail} onChange={handleChange} values={refEmail.current.value} defaultValue={currentUser.email} disabled={isDisabledInput} 
+                  <input name='profileEmail' type='text' className='profile__email' required ref={refEmail} onChange={handleChange} values={refEmail.current.value} defaultValue={currentUser.email} disabled={isDisabledInput} 
                         pattern="[^@\s]+@[^@\s]+\.[^@\s]+"></input>
+                  <span className='profile__inputErr'>{errors.profileEmail}</span>
               </div>
               <button type='submit' className='profile__edit' disabled={!isValid || !isUpdate}>Редактировать</button>
               <button type='button' className='profile__logout' onClick={props.handleAccountExit}>Выйти из аккаунта</button>

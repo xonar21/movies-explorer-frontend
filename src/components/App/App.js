@@ -61,12 +61,12 @@ function App() {
    const [screenWidth, setScreenWidth] = React.useState(window.innerWidth)
 
    const handleResizing = () => {
-      setScreenWidth(window.innerWidth)  // Записываю сайт в стейт для лальнейшего использования
+      setScreenWidth(window.innerWidth)
     }
 
     const [allMovies, setMovies] = React.useState(null)
 
-    // Сортировка фильмов пользователя
+ 
    const sortingUserSavedMovies =(savedFilms, userId)=> savedFilms.filter((movie) => movie.owner ===userId);
 
    const handleGetMovies = () => {

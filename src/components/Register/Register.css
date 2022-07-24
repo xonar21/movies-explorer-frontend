@@ -52,6 +52,16 @@
     border-bottom: 1px solid #424242;
     padding-bottom: 10px;
     margin-bottom: 24px;
+    position: relative;
+}
+
+.register__inputErr {
+    position: absolute;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    bottom: -25px;
+    color: #EE3465;
 }
 
 .register__label:last-of-type {
@@ -99,5 +109,13 @@
     .register {
         margin-right: 30px;
         margin-left: 30px;
+    }
+
+    .register__label {
+        margin-bottom: 40px;
+    }
+
+    .register__inputErr {
+        bottom: -38px;
     }
 }

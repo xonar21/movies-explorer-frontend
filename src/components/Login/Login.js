@@ -23,6 +23,7 @@ function Login(props) {
 		props.handleLogin({ email: values.email, password: values.password })	
 		}	
 	}
+  console.log(errors)
   return (
     <div className='login'>
         <Link to={routes.main}><img src={logo} className='login__logo'/></Link>
@@ -30,11 +31,13 @@ function Login(props) {
         <form className='login__form'  onSubmit={onLoginSumbit} noValidate>
             <label className='login__label'>
                 <span className='login__span'>E-mail</span>
-                <input type='email' className='login__input' name="email" onChange={handleChange} values={values.email}></input>
+                <input required type='email' className='login__input' name="email" onChange={handleChange} values={values.email}></input>
+                <span className='login__inputErr'>{errors.email}</span>
             </label>
             <label className='login__label'>
                 <span className='login__span'>Пароль</span>
-                <input type='password' className='login__input' name="password" onChange={handleChange} values={values.password}></input>
+                <input required type='password' className='login__input' name="password" onChange={handleChange} values={values.password}></input>
+                <span className='login__inputErr'>{errors.password}</span>
             </label>
             <button className='login__button'>Войти</button>
             <p className='login__text'>Ещё не зарегистрированы?<Link className='login__register'to={routes.register}>Регистрация</Link></p>
