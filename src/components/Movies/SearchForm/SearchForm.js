@@ -209,7 +209,7 @@ function SearchForm({savedMovies, allMovies, isSaved, cardCount, handleMovieDele
         }
     }, [])
 
-   
+    //чекбокс
     const onShortFilmsCheckbox = () => {
         setIsShort(!isShort)
     }
