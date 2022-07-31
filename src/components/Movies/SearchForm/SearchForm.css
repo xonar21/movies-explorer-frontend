@@ -1,169 +1,182 @@
-.searchForm {
-    max-width: 1140px;
-    margin: auto;
-    padding-bottom: 69px;
-    border-bottom: 1px solid #424242;
+.search-form {
+   width: 100%;
+   padding: 50px 70px 118px 70px;
+   box-sizing: border-box;
 }
 
-.searchForm__form {
-    display: flex;
-    background-color: #2F2F2F;
-    height: 72px;
-    border-radius: 9px;
-    align-items: center;
-    margin-top: 70px;
-    flex-direction: column;
-    position: relative;
+.search-form__Inputs {
+   width: 100%;
+   display: flex;
+   height: 100%;
+   align-items: center;
 }
 
-.searchForm__fieldset {
-    border: none;
-    width: 100%;
-    display: flex;
-    padding: 0;
-    height: 100%;
+.search-form__Input {
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 28px;
+   line-height: 34px;
+   color: white;
+   max-width: 1036px;
+   background: transparent;
+   border: none;
+   margin-right: auto;
 }
 
-.search__inputErr {
-    position: absolute;
-    bottom: -25px;
-    left: 0;
-    color: #EE3465;
+
+.search-form__form {
+   background-color: #2F2F2F;
+   border-radius: 9px;
+   height: 72px;
 }
 
-.searchForm__logo {
-    width: 34px;
-    margin-left: 19px;
+.search-form__Input:focus {
+   border-radius: 5px;
+   outline: 1px solid rgb(86, 89, 87);
 }
 
-.searchForm__search {
-    max-width: 785px;
-    border: none;
-    background-color: #2F2F2F;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 20px;
-    color: white;
+.search-form__Btn-submit {
+   background-image: url('../../../images/find_btn.svg');
+   background-repeat: no-repeat;
+   width: 34px;
+   height: 34px;
+   border: none;
+   background-color: transparent;
+   transition: opacity 0.5s ease-in-out;
+   cursor: pointer;
+   border-right: 1px solid #424242;
+   padding-right: 60px;
 }
 
-.searchForm__seacrhImg:hover {
-  opacity: 0.5;
-  transition: opacity 0.2s linear;
+.search-form__Btn-submit:hover {
+   opacity: 0.8;
 }
 
-.searchForm__button {
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-    margin-left: auto;
-    border-right: 1px solid #424242;
-    height: 36px;
-    padding-right: 24px;
-    align-self: center;
+.search-form__Checkbox-Container {
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 13px;
+   line-height: 18px;
+   margin-left: 29px;
+   display: flex;
+   align-items: center;
+   margin-right: 30px;
 }
 
-.searchForm__filter {
-    display: flex;
-    margin-left: 20px;
-    align-items: center;
+.search-form_img {
+   width: 34px;
+   height: 34px;
+   margin-left: 19px;
+   margin-right: 10px;
 }
 
-.filter-checkbox {
-    width: 148px;
-    height: 20px;
-    cursor: pointer;
-    display: block;
-    position: relative;
-    margin: 0 auto;
-  }
-
-  .searchForm__filterMobile {
-    display: none;
-  }
-  
-  .searchForm__filterDef {
-    display: none;
-  }
-  
-  .searchForm__filterSlider {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 36px;
-    height: 20px;
-    border-radius: 20px;
-    background-color: #ebebeb;
-    transition: 0.4s;
-    display: block;
-    margin-right: 14px;
-  }
-  
-  .searchForm__filterSlider:before {
-    position: absolute;
-    content: '';
-    height: 8px;
-    width: 8px;
-    border-radius: 4px;
-    left: 6px;
-    top: 6px;
-    background-color: white;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-  
-  .searchForm__filterDef:checked ~ .searchForm__filterSlider {
-    background-color: #2be080;
-  }
-  
-  .searchForm__filterDef:checked ~ .searchForm__filterSlider:before {
-    transform: translateX(16px);
-  }
-
-  .searchForm__filterLabel {
-    margin-right: 30px;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 18px;
-  }
-
-  @media screen and (max-width: 1200px) {
-    .searchForm {
-      margin-right: 30px;
-      margin-left: 30px;
-  }
+.search-form__checkbox-title {
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 13px;
+   line-height: 18px;
+   color: #FFFFFF;
+   margin: 0px;
 }
 
-  @media screen and (max-width: 769px) {
-    .searchForm {
-      margin-right: 10px;
-      margin-left: 10px;
-  }
+.search-form__text-error {
+   max-width: 400px;
+   line-height: 18px;
+   font-size: 16px;
+   /* width: 31.25vw; */
+   min-width: 200px;
+   box-sizing: border-box;
+   text-align: center;
+   padding: 0px;
+   margin: 0px;
+ }
 
-  .searchForm__button {
-    border-right: none;
-    padding-right: 19px;
-  }
+ .search-form__input-text-error {
+   font-weight: normal;
+   font-size: 10px;
+   line-height: 12px;
+   padding: 0;
+   margin: 0 0 20px 0;
+   color: #EE3465;
+   align-self: center;
+   visibility: hidden;
+   transition: visibility .8s ease;
+ }
 
-  .searchForm__filterPC {
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: -135px;
-    right: 0;
-    justify-content: center;
-    z-index: 0;
-  }
+ .search-form__input-text-error_active {
+   visibility: visible;
+ }
 
-  .searchForm__filterMobile {
-    display: flex;
-    justify-content: center;
-    margin: 45px auto;
-  }
+ .searchForm__filterDef {
+   position: absolute;
+   z-index: 1;
+   width: 50px;
+   opacity: 0;
+ }
+ 
+ .searchForm__filterSlider {
+   position: relative;
+   top: 0;
+   left: 0;
+   width: 36px;
+   height: 20px;
+   border-radius: 20px;
+   background-color: #ebebeb;
+   transition: 0.4s;
+   display: block;
+   margin-right: 14px;
+ }
+ 
+ .searchForm__filterSlider:before {
+   position: absolute;
+   content: '';
+   height: 8px;
+   width: 8px;
+   border-radius: 4px;
+   left: 6px;
+   top: 6px;
+   background-color: white;
+   -webkit-transition: 0.4s;
+   transition: 0.4s;
+ }
+ 
+ .searchForm__filterDef:checked ~ .searchForm__filterSlider {
+   background-color: #2be080;
+ }
+ 
+ .searchForm__filterDef:checked ~ .searchForm__filterSlider:before {
+   transform: translateX(16px);
+ }
 
-  .searchForm__search {
-    max-width: 100%;
-    min-width: 100px;
-    z-index: 1;
+@media (max-width: 770px) {
+   .search-form {
+      padding: 50px 30px 127px 30px;
+   }
+
+   .search-form__input-text-error {
+      margin-bottom: 18px;
+   }
 }
 
+@media (max-width: 489px) {
+   .search-form {
+      padding: 60px 14px 91px 14px;
+   }
+
+   .search-form__Input {
+      font-size: 18px;
+      line-height: 22px;      
+   }
+
+   .search-form__checkbox-title {
+      font-size: 11px;
+      line-height: 18px;      
+   }
+
+   .search-form__input-text-error {
+      margin-bottom: 28px;
+   }
 }

@@ -1,0 +1,114 @@
+.movies-card {
+   background: #222;
+   border-radius: 6px;
+   box-shadow: 0 4px 30px rgb(0 0 0 / 8%);
+   display: grid;
+   grid-template-columns: 4fr 1fr;
+   grid-template-rows: 54px 1fr 1fr;
+   height: 319px;
+   width: 360px;
+}
+
+.movies-card__title {
+   margin: 0;
+   font-weight: 500;
+   font-size: 15px;
+   line-height: 18px;
+   margin-left: 18px;
+   align-self: center;
+}
+
+.movies-card__lenght {
+   margin: 0;
+   font-weight: 400;
+   font-size: 13px;
+   line-height: 18px;
+   color: #8B8B8B;
+   justify-self: end;
+   margin-right: 18px;
+   align-self: center;
+}
+
+.movies-card__button {
+   grid-column-start: 1;
+   grid-column-end: 3;
+   border: none;
+   background-color: rgba(0, 0, 0, 0);
+   height: 29px;
+   width: 100px;
+   align-self: center;
+   justify-self: center;
+}
+
+.movies-card__button:hover {
+   opacity: 0.8;
+}
+
+.movies-button_type_active-like-btn {
+   color: rgba(0, 0, 0, 0);
+   background-image: url('../../images/saved.svg');
+   background-repeat: no-repeat;
+}
+
+.movies-button_type_unactive-like-btn {
+   color: white;
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 11px;
+   background: #313131;
+   border-radius: 30px;
+}
+
+.movies-card__button_type_close-btn {
+   background-image: url('../../images/Close_btn.svg');
+   background-size: 13px;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-color: #313131;
+   border-radius: 30px;
+}
+
+.movies-card__picture-film {
+   grid-column-end: 3;
+   grid-column-start: 1;
+   height: 200px;
+   object-fit: cover;
+   width: 100%;
+}
+
+.movies-card-list__list {
+   border-top: 1px solid #424242;
+   padding-top: 80px;
+}
+
+@media (max-width: 400px) {
+   .movies-card {
+      width: 300px;
+      height: 271px;
+      padding: 0px;
+      margin-bottom: 0px;
+   }
+
+   .movies-card__title {
+      font-size: 12px;
+      line-height: 15px;
+   }
+
+   .movies-card__lenght {
+      padding-top: 8px;
+      padding-bottom: 0px;
+   }
+
+   .movies-card__container {
+      width: 100%;
+      padding: 14px 14px 14px 12px;
+      margin: 0;
+      box-sizing: border-box;
+      position: relative;
+   }
+
+   .movies-card__picture-film {
+      width: 100%;
+      height: 168px;
+   }
+}

@@ -1,0 +1,41 @@
+.navtab {
+   margin-bottom: 30px;
+   display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.navtab__link {
+	font-family: Inter;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 16px;
+	letter-spacing: 0px;
+	width: 96px;
+	color: #FFFFFF;
+	background: #303030;
+	border-radius: 10px;
+	text-decoration: none;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 10px 0px;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.navtab__link:hover {
+	opacity: 0.8;
+}
+
+@media (max-width: 400px) {
+	.navtab {
+		margin-bottom: 17px;
+		gap: 6px;
+	}
+
+	.navtab__link {
+		font-size: 10px;
+		width: 82px;
+		border-radius: 6px;		
+		padding: 5px 0px;
+	}
+}

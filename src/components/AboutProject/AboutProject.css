@@ -1,0 +1,202 @@
+.about-project {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   /* justify-content: center; */
+   padding: 110px 70px;
+   box-sizing: border-box;
+
+}
+
+.about-project__title {
+   width: 100%;
+   font-family: Inter;
+   font-size: 22px;
+   font-weight: 400;
+   line-height: 27px;
+   letter-spacing: -0.04em;
+   color: #FFFFFF;
+   border-bottom: 1px solid #DADADA;
+   padding-bottom: 23px;
+   text-align: left;
+   /* padding: 0px; */
+   margin: 0px;
+}
+
+.about-project__container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 70px;
+   margin-bottom: 110px;
+   gap: 40px;
+}
+
+.about-project__collumn {
+   max-width: 550px;
+   /* display: flex;
+	flex-direction: column; */
+}
+
+.about-project__collumn-title {
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 20px;
+   line-height: 24px;
+   letter-spacing: -0.04em;
+   color: #FFFFFF;
+   /* padding: 0px; */
+   /* margin-bottom: 26px; */
+   margin: 0px;
+}
+
+.about-project__collumn-subtitle {
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 14px;
+   line-height: 20px;
+   color: #FFFFFF;
+   padding-top: 26px;
+   margin: 0px;
+}
+
+.about-project__week-container {
+   display: flex;
+   width: 100%;
+}
+
+.about-project__week-time {
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 14px;
+   line-height: 17px;
+   text-align: center;
+   box-sizing: border-box;
+   padding: 9px 14px;
+}
+
+.about-project__week-time_type_backend {
+   background: #3DDC84;
+   color: #000000;
+   width: 228px;
+   height: 36px;
+   margin: 0px;
+}
+
+.about-project__week-time_type_frontend {
+   max-width: 912px;
+   background: #303030;
+   color: #FFFFFF;
+   margin: 0px;
+   width: 71vw;
+}
+
+.about-project__week-description {
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 14px;
+   line-height: 17px;
+   text-align: center;
+   color: #8B8B8B;
+   padding-top: 14px;
+   margin: 0px;
+}
+
+@media (max-width: 1027px) {
+   .about-project__week-time_type_backend {
+      width: 140px;
+      margin: 0px;
+   }
+
+   .about-project__week-time_type_frontend {
+      width: 68vw;
+      margin: 0px;
+   }
+}
+
+@media (max-width: 795px) {
+   .about-project {
+      padding: 90px 50px;
+   }
+
+   .about-project__container {
+      margin: 70px 0px 93px 0px;
+   }
+
+   .about-project__title {
+      font-size: 22px;
+      line-height: 27px;
+   }
+
+   .about-project__collumn-subtitle {
+      font-size: 12px;
+      line-height: 18px;
+      padding-top: 22px;
+   }
+
+   .about-project__week-time_type_backend {
+      width: 18vw;
+   }
+
+   .about-project__week-time_type_frontend {
+      width: 68vw;
+   }
+}
+
+@media (max-width: 440px) {
+   .about-project {
+      padding: 70px 18px;
+   }
+
+   .about-project__container {
+      flex-direction: column;
+      gap: 56px;
+      margin-top: 60px;
+      margin-bottom: 60px;
+      /* margin: 70px 0px 93px 0px; */
+   }
+
+   .about-project__title {
+      font-size: 18px;
+      line-height: 22px;
+      padding-bottom: 28px;
+   }
+
+   .about-project__collumn-title {
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 16px;
+   }
+
+   .about-project__collumn-subtitle {
+      font-size: 11px;
+      line-height: 16px;
+      padding-top: 0px;
+   }
+
+   .about-project__week-time_type_backend {
+      width: 31vw;
+   }
+
+   .about-project__week-time_type_frontend {
+      width: 57vw;
+
+   }
+
+   .about-project__week-time {
+      font-size: 11px;
+      line-height: 13px;
+      padding: 11px 10px;
+   }
+
+   .about-project__week-description {
+      font-size: 11px;
+      line-height: 13px;
+      padding-top: 10px;
+   }
+}

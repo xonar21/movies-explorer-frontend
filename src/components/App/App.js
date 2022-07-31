@@ -1,72 +1,69 @@
-import React from 'react';
-
-import { routes } from '../../utils/constants';
-
-import { Route, Switch, useHistory} from 'react-router-dom';
-
-import Profile from '../Profile/Profile';
-
-import Register from '../Register/Register';
-
+import React from "react";
+// import Header from "../Header/Header";
+import Main from "../Main/Main";
+import Movies from "../Movies/Movies";
+import './App.css'
+import PageNotFound from '../PageNotFound/PageNotFound';
+import { Switch, Route, useHistory } from 'react-router-dom'
+import SavedMovies from '../SavedMovies/SavedMovies'
+import Register from '../Register/Register'
 import Login from '../Login/Login';
-
-import Page404 from '../Page404/Page404';
-
-import Main from '../Main/Main';
-
-import Movies from '../Movies/Movies';
-
+import Profile from '../Profile/Profile'
 import {
-   register,
-   login,
-   saveMovies,
-   editProfile,
-   getUserInformation,
-   deleteSavedMovies,
-   getMovies
-} from '../../utils/api/MainApi';
-
-import {getSavedMovies} from "../../utils/api/MoviesApi";
-
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
-import { CurrentUserContext } from '../../context/currentUserContext';
-
-import UnProtectedRoute from '../UnProtectedRoute/UnProtectedRoute';
-
-import {narrowScreen, largeScreenMoviesMore, narrowScreenMoviesMore} from '../../utils/constants';
-
-import './App.css';
+    register,
+    login,
+    saveMovies,
+    editProfile,
+    getUserInformation,
+    deleteSavedMovies,
+    getMovies
+} from '../../untils/api/MainApi';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
+import { CurrentUserContext } from '../../contexts/CurrentUserContext'
+import UnProtectedRoute from '../UnProtectedRoute/UnProtectedRoute'
+import {narrowScreen, largeScreenMoviesMore, narrowScreenMoviesMore} from '../../untils/constants'
+import {getSavedMovies} from "../../untils/api/MoviesApi";
 
 function App() {
 
-   const [loggedIn, setloggedIn] = React.useState(false);
+  
+   const [loggedIn, setloggedIn] = React.useState(false); 
+
 
    const [registrationError, setRegistrationError] = React.useState('')
 
+
    const [loginError, setLoginError] = React.useState('')
+
 
    const [updateProfileError, setUpdateProfileError] = React.useState('')
 
+
    const [isSuccessfulProfileSubmit, setIsSuccessfulProfileSubmit] = React.useState(false)
+
 
    const [currentUser, setCurrentUser] = React.useState({});
 
+  
    const [savedMovies, setSavedMovies] = React.useState('')
 
+   
    const [cardCount, setCardCount] = React.useState(window.innerWidth > narrowScreen ? largeScreenMoviesMore : narrowScreenMoviesMore)
 
+  
    const history = useHistory();
 
    const [screenWidth, setScreenWidth] = React.useState(window.innerWidth)
 
    const handleResizing = () => {
-      setScreenWidth(window.innerWidth)
+      setScreenWidth(window.innerWidth)  
     }
 
     const [allMovies, setMovies] = React.useState(null)
 
- 
+
+
+   
    const sortingUserSavedMovies =(savedFilms, userId)=> savedFilms.filter((movie) => movie.owner ===userId);
 
    const handleGetMovies = () => {
@@ -78,14 +75,14 @@ function App() {
    };
 
    const handleRegister = ({ name, email, password }) => {
-
+    
       setRegistrationError('');
-
+   
       register(name, email, password)
          .then((res) => {
-       
+           
             setCurrentUser(res.data)
-  
+    
             handleLogin({ email, password })
          })
          .catch((error) => {
@@ -98,39 +95,40 @@ function App() {
          })
    };
 
-
+ 
    const handleLogin = ({ email, password }) => {
-
+   
       setLoginError('');
-
+    
       login(email, password)
          .then((data) => {
- 
+          
             localStorage.setItem('token', data.token)
- 
+         
             getUserInformation()
                .then((userInfo) => {
-      
+             
                   if (userInfo.data.name) {
-         
+                  
                      setCurrentUser(userInfo.data)
-        
+                 
                      setloggedIn(true)
-      
+              
                      const currentUserId= userInfo.data._id
-            
+                 
                      getMovies()
                      .then((res)=>{
-                        const beatfilmsMoviesApi =res.data
-                 
+                        const beatfilmsMoviesApi =res
+                        
+               
                         const sortingUserMovies = sortingUserSavedMovies(beatfilmsMoviesApi, currentUserId)
-                   
-                        setSavedMovies(sortingUserMovies)
              
+                        setSavedMovies(sortingUserMovies)
+                   
                         localStorage.setItem('films', JSON.stringify(sortingUserMovies))
                      })
                      .catch((error)=> console.log(error))
-          
+               
                      history.push('/movies')                     
                   }
                }).catch((error) => {
@@ -154,16 +152,16 @@ function App() {
 
 
    const handleUpdateUser = ({ name, email }) => {
- 
-      setUpdateProfileError('');
-
-      setIsSuccessfulProfileSubmit(false)
     
+      setUpdateProfileError('');
+   
+      setIsSuccessfulProfileSubmit(false)
+   
       editProfile(name, email)
          .then((res) => {
-   
+       
             setCurrentUser(res.data)
-   
+     
             setIsSuccessfulProfileSubmit(true)
          })
          .catch((error) => {
@@ -176,16 +174,57 @@ function App() {
          })
    }
 
-   
-   const handleAccountExit = () => {
  
+   const handleAccountExit = () => {
+      
       localStorage.clear()
-
+     
       setloggedIn(false)
-
+ 
       setCurrentUser('')
-
+   
       history.push('/')
+   }
+
+  
+   const handleSavedMovie =({movie}) =>{
+      
+    
+      saveMovies(movie)
+      .then(()=>{
+        
+         getMovies()
+         .then((res)=>{
+            const beatfilmsMoviesApi =res
+          
+            const sortingUserMovies = sortingUserSavedMovies(beatfilmsMoviesApi, currentUser._id)
+          
+             setSavedMovies(sortingUserMovies)
+          
+             localStorage.setItem('films', JSON.stringify(sortingUserMovies))
+         })
+         .catch((error)=> console.log(error))
+      })
+   }
+
+
+   const handleMovieDelete =({movieId})=>{
+      
+      deleteSavedMovies(movieId)
+      .then(()=>{
+       
+         getMovies()
+         .then((res)=>{
+            const beatfilmsMoviesApi =res
+        
+            const sortingUserMovies = sortingUserSavedMovies(beatfilmsMoviesApi, currentUser._id)
+         
+            setSavedMovies(sortingUserMovies)
+           
+            localStorage.setItem('films', JSON.stringify(sortingUserMovies))
+         })
+         .catch((error)=> console.log(error))
+      })
    }
 
    const tokenCheck = () => {
@@ -193,31 +232,33 @@ function App() {
       if (token) {
         getUserInformation()
           .then((userInfo) => {
-     
+       
             if (userInfo.data.name) {
         
               setCurrentUser(userInfo.data)
-       
+           
               setloggedIn(true)
-   
+        
               const savedFilms = JSON.parse(localStorage.getItem('films'))
               setSavedMovies(savedFilms)
             }
           })
           .catch((error) => {
-            console.log(error)
+         
             localStorage.clear()
             return console.log(error)
           })
       }
     }
 
+   
   React.useEffect(() => {
    tokenCheck()
    handleGetMovies()
  }, [])
 
  React.useEffect(() => {
+   
    window.addEventListener('resize', () =>
      setTimeout(() => {
       handleResizing()
@@ -225,66 +266,78 @@ function App() {
    )
  }, [])
 
+
   React.useEffect(() => {
    setCardCount(window.innerWidth > narrowScreen ? largeScreenMoviesMore : narrowScreenMoviesMore)
  }, [screenWidth])
-  return (
-   <CurrentUserContext.Provider value={currentUser}>
+
+   return (
+      <CurrentUserContext.Provider value={currentUser}>
          <div className="App">
-                  <Switch>
-                     <Route exact path={routes.main}>
-                        <Main loggedIn={loggedIn} />
-                     </Route>
+            <div className="page">
 
-                     <ProtectedRoute
-                        exact
-                        path="/movies"
-                        component={Movies}
-                        loggedIn={loggedIn}
-                     />
-                     
-                     <ProtectedRoute
-                        exact
-                        path="/saved-movies"
-                        component={Movies}
-                        loggedIn={loggedIn}
-                        currentUser={currentUser}
-                     />                  
+               <Switch>
 
-                     <UnProtectedRoute
-                        exact path="/signup"
-                        handleRegister={handleRegister}
-                        loggedIn={loggedIn}
-                        registrationError={registrationError}
-                        component={Register}                    
-                     />
+                  <Route exact path="/">
+                     <Main loggedIn={loggedIn} />
+                  </Route>
 
-                     <UnProtectedRoute
-                     exact path="/signin"
-                     handleLogin={handleLogin}
+                  <ProtectedRoute
+                     exact path="/movies"
+                     component={Movies}
                      loggedIn={loggedIn}
-                     loginError={loginError}
-                     component={Login}                   
-                     />                  
+                     savedMovies={savedMovies}
+                     allMovies={allMovies}
+                     handleSavedMovie={handleSavedMovie}
+                     handleMovieDelete={handleMovieDelete}
+                     cardCount={cardCount}
+                  />
 
-                     <ProtectedRoute
-                        exact path="/profile"
-                        loggedIn={loggedIn}
-                        component={Profile}
-                        handleAccountExit={handleAccountExit}
-                        handleUpdateUser={handleUpdateUser}
-                        updateProfileError={updateProfileError}
-                        isSuccessfulProfileSubmit={isSuccessfulProfileSubmit}
-                     />
-                  
-                     
-                     <Route path="/*">
-                        <Page404/>
-                     </Route>
-                  </Switch>
+                  <ProtectedRoute
+                     exact path="/saved-movies"
+                     loggedIn={loggedIn}
+                     component={SavedMovies}
+                     savedMovies={savedMovies}
+                     handleMovieDelete={handleMovieDelete}
+                     cardCount={cardCount}
+                  />                  
+
+                  <UnProtectedRoute
+                     exact path="/signup"
+                     handleRegister={handleRegister}
+                     loggedIn={loggedIn}
+                     registrationError={registrationError}
+                     component={Register}                    
+                  />
+
+                  <UnProtectedRoute
+                  exact path="/signin"
+                  handleLogin={handleLogin}
+                  loggedIn={loggedIn}
+                  loginError={loginError}
+                  component={Login}                   
+                  />                  
+
+                  <ProtectedRoute
+                     exact path="/profile"
+                     loggedIn={loggedIn}
+                     component={Profile}
+                     handleAccountExit={handleAccountExit}
+                     handleUpdateUser={handleUpdateUser}
+                     updateProfileError={updateProfileError}
+                     isSuccessfulProfileSubmit={isSuccessfulProfileSubmit}
+                  />
+                
+                  <Route path="/*">
+                     <PageNotFound />
+                  </Route>
+
+               </Switch>
+            </div>
          </div>
+
       </CurrentUserContext.Provider>
-  );
+   );
 }
 
-export default App; 
+export default App;

@@ -1,22 +1,24 @@
-import Header from '../Header/Header';
+import React from "react";
+import './SavedMovies.css'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
+import SearchForm from "./SearchForm/SearchForm";
 
-import SearchForm from '../Movies/SearchForm/SearchForm';
-
-import Footer from '../Footer/Footer';
-
-function SavedMovies(props) {
-  return (
-    <>
-        <Header />
-        <SearchForm 
-        isSaved={true}
-        cardCount={props.cardCount}
-        handleMovieDelete={props.handleMovieDelete}
-        savedMovies={props.savedMovies}
-        />
-        <Footer />
-    </>
-  );
+function SavedMovies(props){
+	return ( 
+	
+	<>
+	<Header loggedIn={props.loggedIn}/>
+	<SearchForm 
+	isSaved
+	cardCount={props.cardCount}
+	handleMovieDelete={props.handleMovieDelete}
+	savedMovies={props.savedMovies}
+	/>	   
+	<Footer/>
+	</>
+	
+);
 }
 
-export default SavedMovies; 
+export default SavedMovies;
