@@ -1,49 +1,56 @@
+
 import React from "react";
-
-import './Login.css';
-
-import { routes } from '../../utils/constants';
-
+import './Login.css'
+import { Link } from 'react-router-dom'
 import formValidationHook from '../../hook/formValidationHook';
 
-import { Link } from 'react-router-dom';
+function Login(props){
 
-import logo from '../../images/logo.svg';
-
-function Login(props) {
-
-  const { values, isValid, handleChange, errors } = formValidationHook({
+	const { values, isValid, handleChange, errors } = formValidationHook({
 		email: '',
 		password: '',		
 	 })
 
-  const onLoginSumbit = (evt) => {
+	 const onLoginSumbit = (evt) => {
 		evt.preventDefault()
 		if (isValid) {
 		props.handleLogin({ email: values.email, password: values.password })	
 		}	
-	}
+	 }
 
-  return (
-    <div className='login'>
-        <Link to={routes.main}><img src={logo} className='login__logo'/></Link>
-        <h2 className='login__title'>Рады видеть!</h2>
-        <form className='login__form'  onSubmit={onLoginSumbit} noValidate>
-            <label className='login__label'>
-                <span className='login__span'>E-mail</span>
-                <input required type='email' className='login__input' name="email" onChange={handleChange} values={values.email}></input>
-                <span className='login__inputErr'>{errors.email}</span>
-            </label>
-            <label className='login__label'>
-                <span className='login__span'>Пароль</span>
-                <input required type='password' className='login__input' name="password" onChange={handleChange} values={values.password}></input>
-                <span className='login__inputErr'>{errors.password}</span>
-            </label>
-            <button className='login__button'>Войти</button>
-            <p className='login__text'>Ещё не зарегистрированы?<Link className='login__register'to={routes.register}>Регистрация</Link></p>
-        </form>
-    </div>
-  );
+	return ( 
+		<section className="login">
+<div className="login-container">
+
+<Link className="login__logo" to="/" />
+
+<h1 className="login__title">Рады видеть!</h1>
+<form className="login__form" name="login" onSubmit={onLoginSumbit} noValidate>
+<ul className="login__form-input-list">
+	<li className="login__form-input-list-item">
+	<label className="login__form-input-label">E-mail</label>
+	<input className={errors.email ? 'login__form-input login__form-input_type_error' : 'login__form-input'} name="email" type="email" 
+	placeholder="Ваш e-mail" required onChange={handleChange} values={values.email} pattern="[^@\s]+@[^@\s]+\.[^@\s]+"/>
+	<span className="login__form-input-error">{errors.email}</span>
+	</li>
+
+	<li className="login__form-input-list-item">
+	<label className="login__form-input-label">Пароль</label>
+	<input className={errors.password ? 'login__form-input login__form-input_type_error' : 'login__form-input'} name="password" 
+	type="password" placeholder="Ваш пароль" minLength="8" maxLength="20" required onChange={handleChange} values={values.password}/>
+	<span className={!isValid ? 'login__form-input-error login__form-input-error_active' : 'login__form-input-error'}>{errors?.email} {errors?.password}</span> 
+	</li>	
+	<span className={props.loginError ? 'login__form-input-error login__form-input-error_active' : 'login__form-input-error'}>{props.loginError}</span>
+</ul>
+<button className="login__button" type="submit" aria-label='Кнопка отправить' disabled={!isValid}>Войти</button>
+			<div className="login__form-button-container">
+				<p className="login__question">Ещё не зарегистрированы?</p>
+				<Link className="login__form-link" to="/signup">Регистрация</Link>  
+			</div>
+</form>
+</div>
+</section>
+);
 }
 
-export default Login; 
+export default Login;

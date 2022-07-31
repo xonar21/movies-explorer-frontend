@@ -1,29 +1,27 @@
-import Header from '../Header/Header';
+import React from "react";
+import './Main.css'
+import Promo from "../Promo/Promo";
+import AboutProject from "../AboutProject/AboutProject";
+import Techs from "../Techs/Techs";
+import AboutMe from "../AboutMe/AboutMe";
+import Portfolio from "../Portfolio/Portfolio";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 
-import AboutProject from '../Main/AboutProject/AboutProject';
 
-import Promo from '../Main/Promo/Promo';
+function Main(props){
+	return ( 
+  <div>
+  <Header loggedIn={props.loggedIn} />
+  <Promo />
+  <AboutProject/>
+  <Techs/>
+  <AboutMe/>
+  <Portfolio/>
+  <Footer/>
+  </div>
 
-import Footer from '../Footer/Footer';
-
-import Techs from '../Main/Techs/Techs';
-
-import AboutMe from '../Main/AboutMe/AboutMe';
-
-import Portfolio from '../Main/Portfolio/Portfolio';
-
-function Main(props) {
-  return (
-    <>
-        <Header isLogin={props.loggedIn} />
-        <Promo />
-        <AboutProject />
-        <Techs />
-        <AboutMe />
-        <Portfolio />
-        <Footer />
-    </>
-  );
+);
 }
 
-export default Main; 
+export default Main;

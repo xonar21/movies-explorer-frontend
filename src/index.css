@@ -1,14 +1,7 @@
 @import url(./vendor/normalize.css);
-@import url(./vendor/fonts.css);
+@import url(./vendor/fonts/Inter/inter.css);
 
-#body {
-  background-color: #202020;
-  color: #FFFFFF;
-}
 #root {
-  max-width: 1280px;
-  min-width: 320px;
-  margin: auto;
-  font-family: "Inter", Arial, Helvetica, sans-serif;
-  
-}
+   background-color: #202020;
+   min-width: 320px;
+ }
