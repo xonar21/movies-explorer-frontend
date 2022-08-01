@@ -20,7 +20,7 @@ function MoviesCardList({
    const movieDuration = (movie) => `${Math.floor(movie.duration / 60)}ч ${movie.duration % 60}м`
    
  
-  const renderArrayItem = isSaved ? movies : movies.slice(0, isrenderCounter)
+  const renderArrayItem = isSaved ? movies : movies.slice(0, isrenderCounter);
 
   
   const addbuttonMovies = () => {
