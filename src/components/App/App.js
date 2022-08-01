@@ -21,7 +21,7 @@ import {
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 import UnProtectedRoute from '../UnProtectedRoute/UnProtectedRoute'
-import {narrowScreen, largeScreenMoviesMore, narrowScreenMoviesMore} from '../../untils/constants'
+import {narrowScreen, smallScreen, largeScreenMoviesMore, narrowScreenMoviesMore, smallScreenMoviesMore} from '../../untils/constants'
 import {getSavedMovies} from "../../untils/api/MoviesApi";
 
 function App() {
@@ -48,8 +48,13 @@ function App() {
    const [savedMovies, setSavedMovies] = React.useState('')
 
    
-   const [cardCount, setCardCount] = React.useState(window.innerWidth > narrowScreen ? largeScreenMoviesMore : narrowScreenMoviesMore)
-
+   const [cardCount, setCardCount] = React.useState(
+      window.innerWidth > narrowScreen 
+      ? largeScreenMoviesMore 
+      : window.innerWidth <= narrowScreen && window.innerWidth >= smallScreen
+      ? narrowScreenMoviesMore
+      : smallScreenMoviesMore
+      )
   
    const history = useHistory();
 
@@ -268,7 +273,13 @@ function App() {
 
 
   React.useEffect(() => {
-   setCardCount(window.innerWidth > narrowScreen ? largeScreenMoviesMore : narrowScreenMoviesMore)
+   setCardCount(
+      window.innerWidth > narrowScreen 
+      ? largeScreenMoviesMore
+      : window.innerWidth <= narrowScreen && window.innerWidth >= smallScreen
+      ? narrowScreenMoviesMore
+      : smallScreenMoviesMore
+      )
  }, [screenWidth])
 
    return (

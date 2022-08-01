@@ -12,8 +12,7 @@ function SearchForm({savedMovies, allMovies, isSaved, cardCount, handleMovieDele
     const {values, isValid, handleChange} = useFormWithValidation({
         search: '',
     })
-
-    
+ 
     const [isPrevSearch, setIsPrevSearch] = React.useState(true)
 
    
