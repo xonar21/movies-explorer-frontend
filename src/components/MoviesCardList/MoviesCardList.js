@@ -24,13 +24,12 @@ function MoviesCardList({
 
   
   const addbuttonMovies = () => {
-   
     if (dataLengthMovies - isrenderCounter <= cardCount) {
       setRenderCounter(isrenderCounter + (dataLengthMovies - isrenderCounter))
       setIsButtonVisible(false)
     } else {
       setIsButtonVisible(true)
-      setRenderCounter(isrenderCounter + cardCount)
+      setRenderCounter(isrenderCounter + cardCount/4)
     }
   }
   
