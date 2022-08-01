@@ -12,8 +12,7 @@ function SearchForm({savedMovies, allMovies, isSaved, cardCount, handleMovieDele
     const {values, isValid, handleChange} = useFormWithValidation({
         search: '',
     })
-
-    
+ 
     const [isPrevSearch, setIsPrevSearch] = React.useState(true)
 
    
@@ -209,7 +208,7 @@ function SearchForm({savedMovies, allMovies, isSaved, cardCount, handleMovieDele
         }
     }, [])
 
-   
+    //чекбокс
     const onShortFilmsCheckbox = () => {
         setIsShort(!isShort)
     }
