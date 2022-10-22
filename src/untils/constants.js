@@ -1,4 +1,4 @@
-export const baseUrl = 'http://localhost:4000';
+export const baseUrl = 'https://moviesexpback.herokuapp.com';
 
 export const beatfilmsUrl = 'https://api.nomoreparties.co/beatfilm-movies';
 
