@@ -55,4 +55,4 @@ ___
 * HTML
 * CSS
 
-* Домен по которому доступно приложение [https://moviesfrontend.herokuapp.com/](https://moviesfrontend.herokuapp.com/)
+Домен по которому доступно приложение [https://moviesfrontend.herokuapp.com/](https://moviesfrontend.herokuapp.com/)
