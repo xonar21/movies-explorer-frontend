@@ -1,4 +1,4 @@
-export const baseUrl = 'https://moviesexpback.herokuapp.com';
+export const baseUrl = 'https://moviesbackend-18f7681fe3c1.herokuapp.com';
 
 export const beatfilmsUrl = 'https://api.nomoreparties.co/beatfilm-movies';
 
